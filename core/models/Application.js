@@ -6,8 +6,10 @@
 		this._applicationReady = false;
 		this._functionQueue = [];
 		
-		this.templateIds = options && options.templates ? options.templates : {};
+		this.templateIds = options && options.templates ? options.templates : [];
 		this.templates = {};
+		
+		this.styleIds = options && options.styles ? options.styles : [];
 
 		this._initialise();
 	};
@@ -42,10 +44,18 @@
 	models.Application.prototype._initialise = function (){
 		var def = $.Deferred();
 		var self = this;
+		
+		//Load the style sheets
+		var stylesheet;
+		for ( var i=0; i<this.styleIds.length; i++ ){
+			stylesheet = $('<link rel="stylesheet" href="css/'+this.styleIds[i]+'.css"/>');
+			$("head").append(stylesheet);
+		}
+		
 		var templateCounter = 0;
 		
 		//Load the templates
-		for ( var i=0; i<this.templateIds.length; i++ ){
+		for ( i=0; i<this.templateIds.length; i++ ){
 			this.templates[this.templateIds[i]] = new models.Template(this.templateIds[i]);
 			this.templates[this.templateIds[i]].load().always(function(){
 				templateCounter++;
