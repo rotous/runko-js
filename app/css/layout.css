@@ -6,8 +6,16 @@ html, body{
 body{
     padding: 10em 2em 3em;
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
 }
-header{
+.main{
+    max-width: 800px;
+    margin: 0 auto;
+}
+#header{
     top: 0;
     left: 0;
     position: fixed;
@@ -15,7 +23,7 @@ header{
     box-sizing: border-box;
 }
 
-footer{
+#footer{
     bottom: 0;
     left: 0;
     position: fixed;

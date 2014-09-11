@@ -1,5 +1,9 @@
-footer{
+#footer{
     background: #eee;
-    padding: 1em 2em;
     font-size: 0.75em;
+    text-align: right;
+}
+#footer footer{
+    padding: 0 2em;
+    padding: 1em 2em;
 }
